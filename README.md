@@ -1,5 +1,3 @@
-# using-typescript
+https://gatsby-firebase-todo.netlify.com/
 
-https://gatsby-ts-todo.netlify.com/
-
-Example of Gatsby.js with React/Redux/TypeScript.
+Example of Gatsby.js with TypeScript and Firebase.
