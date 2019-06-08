@@ -20,6 +20,10 @@ const Container = styled.div`
 const Loading = () => {
   const el = useReactPortal();
 
+  if (el == null) {
+    return <div>ろーでぃんぐ中</div>;
+  }
+
   const handleOnClick = (e: React.SyntheticEvent<HTMLDivElement>) => {
     e.preventDefault();
     e.stopPropagation();

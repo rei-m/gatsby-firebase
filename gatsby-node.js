@@ -26,7 +26,7 @@ exports.createPages = config.createPages;
 
 exports.onCreatePage = config.onCreatePage;
 
-exports.onCreateWebpackConfig = ({ actions }) => {
+exports.onCreateWebpackConfig = ({ stage, loaders, actions }) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
