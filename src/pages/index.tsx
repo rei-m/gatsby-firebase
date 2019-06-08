@@ -3,7 +3,6 @@ import { graphql } from 'gatsby';
 import styled from 'styled-components';
 import Layout from '@src/components/Layout';
 import SEO from '@src/components/Seo';
-import Loading from '@src/components/Loading';
 import TodoContents from '@src/components/TodoContents';
 import GoogleAuthButton from '@src/components/GoogleAuthButton';
 import AnonymousAuthButton from '@src/components/AnonymousAuthButton';
@@ -73,7 +72,7 @@ const IndexPage = ({ data }: Props) => {
           </AuthButtonBox>
         </>
       ) : (
-        <Loading />
+        <div></div>
       )}
     </Layout>
   );

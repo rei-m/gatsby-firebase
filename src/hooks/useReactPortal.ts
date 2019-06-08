@@ -16,29 +16,26 @@ const rootStyle = Object.keys(rootStyleMap)
   .join(';');
 
 export const useReactPortal = (portalElementId?: string) => {
-  if (typeof document !== 'undefined') {
-    const el = useMemo(() => {
-      const div = document.createElement('div');
-      div.style.cssText = rootStyle;
-      return div;
-    }, []);
+  const el = useMemo(() => {
+    const div = document.createElement('div');
+    div.style.cssText = rootStyle;
+    return div;
+  }, []);
 
-    useLayoutEffect(() => {
-      const body = document.getElementsByTagName('body')[0]!;
-      const bodyOverflow = body.style.overflow;
-      body.style.overflow = 'hidden';
+  useLayoutEffect(() => {
+    const body = document.getElementsByTagName('body')[0]!;
+    const bodyOverflow = body.style.overflow;
+    body.style.overflow = 'hidden';
 
-      const rootContainer = document.getElementById(
-        portalElementId ? portalElementId : '___gatsby_portal'
-      )!;
-      rootContainer.appendChild(el);
+    const rootContainer = document.getElementById(
+      portalElementId ? portalElementId : '___gatsby_portal'
+    )!;
+    rootContainer.appendChild(el);
 
-      return () => {
-        rootContainer.removeChild(el);
-        body.style.overflow = bodyOverflow;
-      };
-    }, []);
-    return el;
-  }
-  return null;
+    return () => {
+      rootContainer.removeChild(el);
+      body.style.overflow = bodyOverflow;
+    };
+  }, []);
+  return el;
 };
